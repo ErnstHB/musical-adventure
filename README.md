@@ -1,2 +1,9 @@
 # musical-adventure
-Typescript task for learning
+
+Typescript tasks for learning
+
+```shell
+npm init -y
+npm i typescript @types/node
+npx tsc --init
+```
