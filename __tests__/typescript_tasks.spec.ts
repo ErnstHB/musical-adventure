@@ -1,5 +1,4 @@
 /* eslint-disable no-sparse-arrays */
-// eslint-disable no-sparse-arrays
 import { expect } from "chai";
 import forEach from "mocha-each";
 

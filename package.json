@@ -32,15 +32,16 @@
     "husky": "5.0.9",
     "mocha": "^8.3.0",
     "mocha-each": "^2.0.1",
+    "nyc": "^15.1.0",
     "prettier": "2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "4.1.5"
   },
   "dependencies": {},
   "scripts": {
-    "test": "mocha --ui bdd --require ts-node/register __tests__/**/*.ts",
+    "test": "nyc mocha --ui bdd --require ts-node/register __tests__/**/*.ts",
     "build": "tsc",
     "lint": "prettier --write **/*.ts **/*.js && eslint **/*.ts **/*.js --fix",
-    "start": "mocha --ui bdd --require ts-node/register --watch __tests__/**/*.ts"
+    "start": "nyc mocha --ui bdd --require ts-node/register --watch __tests__/**/*.ts"
   }
 }
