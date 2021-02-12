@@ -4,21 +4,23 @@ type WrapArgs = typeof data;
 type WrapReturn = number;
 
 function wrap(_data: WrapArgs): WrapReturn {
-  // don't touch about this line
+  function isOdd(n: number) {
+    return n % 2;
+  }
 
   function taskFn(d: number[]): number {
-    return d.reduce((acc, cur) => acc + cur);
-    // return 0;
+    return d.filter(isOdd).length;
   }
 
   const normalisedData = _data;
 
-  // don't touch below this line
   return taskFn(normalisedData);
 }
 
+// don't touch below this line
 type MainArgs = WrapArgs;
 type MainReturn = WrapReturn;
+
 export default function main(dataOverride?: MainArgs): MainReturn {
   if (dataOverride) return wrap(dataOverride);
   return wrap(data);
