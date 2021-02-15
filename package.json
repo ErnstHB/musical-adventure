@@ -18,6 +18,7 @@
     "npm": ">=6.14.10"
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "1.0.1",
     "@types/babel__core": "7.1.12",
     "@types/chai": "4.2.15",
     "@types/mocha": "8.2.0",
@@ -34,14 +35,15 @@
     "mocha-each": "2.0.1",
     "nyc": "15.1.0",
     "prettier": "2.2.1",
+    "source-map-support": "^0.5.19",
     "ts-node": "9.1.1",
     "typescript": "4.1.5"
   },
   "dependencies": {},
   "scripts": {
-    "test": "nyc mocha --ui bdd --require ts-node/register __tests__/**/*.ts",
+    "test": "tsc && nyc mocha --ui bdd --require ts-node/register --require source-map-support/register --recursive __tests__/**/*.ts",
     "build": "tsc",
     "lint": "prettier --write **/*.ts **/*.js && eslint **/*.ts **/*.js --fix",
-    "start": "nyc mocha --ui bdd --require ts-node/register --watch __tests__/**/*.ts"
+    "start": "nyc mocha --ui bdd --require ts-node/register/transpile-only --require source-map-support/register --recursive --watch __tests__/**/*.ts"
   }
 }

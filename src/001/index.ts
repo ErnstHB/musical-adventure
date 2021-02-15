@@ -9,7 +9,6 @@ function wrap(_data: WrapArgs): WrapReturn {
   }
 
   const normalisedData = _data;
-
   return taskFn(normalisedData);
 }
 
