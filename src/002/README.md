@@ -1,4 +1,4 @@
-# Task 002
+# Puzzle 002
 
 Return the number of odd numbers in a list of numbers ([your task input](./data.json))
 

@@ -3,10 +3,10 @@
   "puzzles": [
     {
       "pId": "001",
-      "title": "The first task!",
+      "title": "Roses of Rosebush",
       "answer": null,
       "description": "",
-      "question": "How many chickens does it take?",
+      "question": "How many roses are there in L's garden?",
       "input": [1, 2, 3, 4, 5, 6],
       "testCases": [[0, 309281], [[6, 6], 12], [[6], 6], [[-6, 6], 0], [[6, 6, 6, 6], 24]],
     "testString": "sums numbers in %s then returns %d"
