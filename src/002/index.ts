@@ -2,7 +2,14 @@ import puzzleInput from "./data.json";
 import { AnswerArgs, AnswerReturn } from "./types";
 
 function answer(_puzzleInput: AnswerArgs): AnswerReturn {
-  return 0;
+  function isOdd(n: number) {
+    return n % 2;
+  }
+  function taskFn(d: number[]): number {
+    return d.filter(isOdd).length;
+  }
+  const normalisedData = _puzzleInput;
+  return taskFn(normalisedData);
 }
 
 const result = answer(puzzleInput);

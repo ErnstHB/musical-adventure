@@ -2,7 +2,12 @@ import puzzleInput from "./data.json";
 import { AnswerArgs, AnswerReturn } from "./types";
 
 function answer(_puzzleInput: AnswerArgs): AnswerReturn {
-  return 0;
+  function taskFn(d: number[]): number {
+    return d.reduce((acc, cur) => acc + cur);
+  }
+
+  const normalisedData = _puzzleInput;
+  return taskFn(normalisedData);
 }
 
 const result = answer(puzzleInput);
