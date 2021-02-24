@@ -8,7 +8,8 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "typeRoots": ["./typings", "./node_modules/@types"],
   },
   "include": ["src/**/*.ts"]
 }

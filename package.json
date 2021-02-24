@@ -35,15 +35,19 @@
     "mocha-each": "2.0.1",
     "nyc": "15.1.0",
     "prettier": "2.2.1",
-    "source-map-support": "^0.5.19",
+    "prompt": "1.1.0",
+    "source-map-support": "0.5.19",
     "ts-node": "9.1.1",
     "typescript": "4.1.5"
   },
   "dependencies": {},
   "scripts": {
-    "test": "tsc && nyc mocha --ui bdd --require ts-node/register --require source-map-support/register --recursive __tests__/**/*.ts",
+    "test": "tsc && nyc mocha --bail --ui bdd --require ts-node/register --require source-map-support/register --recursive __tests__/**/*.ts",
     "build": "tsc",
     "lint": "prettier --write **/*.ts **/*.js && eslint **/*.ts **/*.js --fix",
-    "start": "nyc mocha --ui bdd --require ts-node/register/transpile-only --require source-map-support/register --recursive --watch __tests__/**/*.ts"
+    "start": "nyc mocha --ui bdd --require ts-node/register --require source-map-support/register --recursive --watch __tests__/**/*.ts",
+    "init": "chmod +x ./progress_script.sh && chmod +x ./init.sh && ./init.sh",
+    "check": "./progress_script.sh",
+    "user": "ts-node src/user/index.ts"
   }
 }
