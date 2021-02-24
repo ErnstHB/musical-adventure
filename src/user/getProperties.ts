@@ -5,7 +5,8 @@ export function getProperties(
   puzzle: Puzzle | undefined
 ): Properties {
   const promptForUser = {
-    name: "Please enter your first name (no numbers or spaces)",
+    name: "name",
+    description: "Please enter your first name (no numbers or spaces)",
     type: "string",
     conform: function (value: string) {
       return /^[a-zA-Z]+$/.test(value);
@@ -14,7 +15,8 @@ export function getProperties(
   };
 
   const promptForAnswer = {
-    name: `Please enter your answer to question ${puzzle && puzzle.pId}`,
+    name: `answer`,
+    description: `Please enter your answer to question ${puzzle && puzzle.pId}`,
     type: "number",
     conform: function (value: string) {
       return /^[0-9]+$/.test(value);

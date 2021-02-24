@@ -1,10 +1,11 @@
 export type Result = {
-  username: string;
-  password: string;
+  name: string;
+  answer: number;
 };
 
 type Property = {
   name: string;
+  description: string;
   type?: string;
   conform: (val: string) => boolean;
   warning: string;

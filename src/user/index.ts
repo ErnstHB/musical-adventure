@@ -4,6 +4,8 @@ import { getProperties } from "./getProperties";
 import { onError } from "./onError";
 import { Result, User } from "./types";
 
+import { writeFile } from "fs";
+
 function init(_userObj: User, _prompt = prompt) {
   _prompt.start();
 
@@ -14,13 +16,26 @@ function init(_userObj: User, _prompt = prompt) {
     getProperties(_userObj, currentPuzzle),
     function (err: Error, result: Result) {
       if (err) return onError(err);
-      // const newUserObj = {
-      //
-      //     ..._userObj,
-      // }
-      //   fs.writeFile(`./userObj.json`, JSON.stringify(newUserObj), (err) =>
-      //       err ? console.error(`Error writing userObj`, err) : console.log(`userObj successfully saved!`)
-      //   )
+      const puzzles = _userObj.puzzles.map((p) => {
+        if (currentPuzzle && p.pId === currentPuzzle.pId) {
+          return {
+            ...p,
+            answer: result.answer,
+          };
+        }
+        return p;
+      });
+      const newUserObj = {
+        ..._userObj,
+        userId: result.name,
+        puzzles,
+      };
+
+      writeFile(`./src/user/userObj.json`, JSON.stringify(newUserObj), (err) =>
+        err
+          ? console.error(`Error writing userObj`, err)
+          : console.log(`userObj successfully saved!`)
+      );
       console.log("Command-line input received:", result);
     }
   );
