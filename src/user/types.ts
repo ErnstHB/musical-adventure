@@ -14,16 +14,19 @@ type Property = {
 
 export type Properties = Property[];
 
-export type Puzzle = {
-  pId: string;
-  title: string;
-  answer: number | null;
-  description: string;
-  question: string;
-  input: number[];
-  testCases: (number | number[])[][];
-  testString: string;
-};
+export type Puzzle =
+  | {
+      pId: string;
+      title: string;
+      answer: number | null;
+      solution: number;
+      description: string;
+      question: string;
+      input: number[];
+      testCases: (number | number[])[][];
+      testString: string;
+    }
+  | Record<string, never>;
 
 export type Puzzles = Puzzle[];
 

@@ -45,7 +45,7 @@
     "test": "tsc && mocha --bail --ui bdd --require ts-node/register --require source-map-support/register --recursive __tests__/**/*.ts",
     "test:cov": "tsc && nyc mocha --ui bdd --require ts-node/register --require source-map-support/register --recursive __tests__/**/*.ts",
     "build": "tsc",
-    "lint": "prettier --write **/*.ts **/*.js && eslint **/*.ts **/*.js --fix",
+    "lint": "prettier --write **/*.ts **/*.json && eslint **/*.ts **/*.json --fix",
     "start": "ts-node src/user/index.ts"
   }
 }
