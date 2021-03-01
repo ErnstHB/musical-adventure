@@ -36,12 +36,11 @@ function init(_userObj: User, _prompt = prompt) {
         writeFile(
           `./src/user/userObj.json`,
           JSON.stringify(newUserObj),
-          (err) =>
-            err
-              ? console.error(`Error writing userObj`, err)
-              : console.log(`userObj successfully saved!`)
+          (err) => err && console.error(`Error writing userObj`, err)
         );
-        console.log(`Great job, ${newUserObj.userId}! You answered, ${result.answer} which is the right answer to ${currentPuzzle.title} (${currentPuzzle.pId})!`);
+        console.log(
+          `Great job, ${newUserObj.userId}! You answered, ${result.answer} which is the right answer to ${currentPuzzle.title} (${currentPuzzle.pId})!`
+        );
       } else {
         console.error(
           `I am sorry, ${newUserObj.userId}, but ${result.answer} is not the right answer to ${currentPuzzle.title} (${currentPuzzle.pId}).`
